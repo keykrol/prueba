@@ -1,0 +1,21 @@
+.app-nav {
+    margin-top: 30px;
+}
+.app-nav .app-nav-list > li a {
+    font-weight: 300;
+    color: #262626;
+}
+.app-nav .app-nav-list > li:after {
+    background: #ff3737;
+}
+
+.icon-item {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    color: #021b45;
+}
+
+.icon-item .material-icons {
+    font-size: 35px;
+}

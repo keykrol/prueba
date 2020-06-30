@@ -1,0 +1,43 @@
+<app-Loader></app-Loader>
+
+<div class="page-header header-filter row justify-content-md-center prueba">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+                <div class="card card-login">
+
+                  <div class="card-header card-header-primary text-center">
+                    <h4 class="card-title">Ingrese el Código</h4>
+                  </div>
+
+                  <form [formGroup]="login">
+                      <div class="mt-2">
+                          <mat-form-field class="w-100" appearance="outline">
+                              <mat-label>codigo</mat-label>
+                                  <input matInput placeholder="Código" formControlName="code" required maxlength="4" >
+                                      <mat-error *ngIf="login.get('code').hasError('required') && login.get('code').touched">{{requerid}}
+                                      </mat-error>
+                                      <mat-error>{{errors.code}}
+                                      </mat-error>
+                          </mat-form-field>
+                      </div>
+                      <mat-dialog-actions>
+                          <div class="row">
+                              <div class="col-md-12 ">
+                                  <button mat-raised-button color="primary" class="button-lg button-login"[disabled]="!login.valid" (click)="onSubmit()">Enviar
+                                  </button>
+                              </div>
+                              <div class="col-md-12 tex-center">
+                                  <a class="box"  routerLink="/session/main-session/signin" style=" text-align:center; color: #f44336">Cancelar
+                                  </a>
+                              </div>
+                          </div>
+                      </mat-dialog-actions>
+                  </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

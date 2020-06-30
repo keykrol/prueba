@@ -1,0 +1,14 @@
+<div [dir]="layout" id="main-app" class="app">
+	<mat-sidenav-container class="embryo-container-wrap">
+	   <mat-sidenav #sidenav [(mode)]="coreService.sidenavMode" [(opened)]="coreService.sidenavOpen" class="sidebar-area">
+	    <app-SideBar></app-SideBar> 
+	   </mat-sidenav>
+      <app-HeaderConfig></app-HeaderConfig> 
+	   <div class="embryo-base-container">
+	      <div class="embryo-container">
+	   		<router-outlet></router-outlet>
+	   	</div>
+         <!-- embryo-container -->
+	   </div>
+	</mat-sidenav-container>
+</div>

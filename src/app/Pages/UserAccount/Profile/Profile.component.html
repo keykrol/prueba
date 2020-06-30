@@ -1,0 +1,88 @@
+<mat-card>
+  <h4>Datos Personales</h4>
+  <div fxLayout="row wrap" class="col-gap">
+    <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+      <div class="proflie-field mb-3">
+        <label>UserName:</label>
+        <span *ngIf="this.user.username; else vacio">{{this.user.username}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Primer nombre:</label>
+        <span *ngIf="this.user.name; else vacio">{{this.user.name}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Segundo nombre:</label>
+        <span *ngIf="this.user.secondName; else vacio">{{this.user.secondName}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Primer apellido:</label>
+        <span *ngIf="this.user.lastName; else vacio">{{this.user.lastName}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Segundo apellido:</label>
+        <span *ngIf="this.user.secondLastname; else vacio">{{this.user.secondLastname}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Correo electronico: </label>
+        <span *ngIf="this.user.email; else vacio">{{this.user.email}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Identificación:</label>
+        <span *ngIf="this.user.numIden; else vacio">{{this.user.typeDoc}}-{{this.user.numIden}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Fecha de nacimiento:</label>
+        <span *ngIf="this.user.birthDate; else vacio">{{this.user.birthDate  | date:'dd/MM/yyyy'}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Teléfonos de contacto:</label>
+        <span *ngIf="this.user.firstNumPhone && this.user.secondNumPhone; else vacio">
+          {{this.user.firstNumPhone}}
+          -
+          {{this.user.secondNumPhone}}</span>
+      </div>
+    </div>
+    <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+      <div class="proflie-field mb-3">
+        <label>Dirección:</label>
+        <span *ngIf="this.user.address; else vacio">{{this.user.address}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Codigo postal:</label>
+        <span *ngIf="this.user.postalCode; else vacio">{{this.user.postalCode}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Número de licencia:</label>
+        <span *ngIf="this.user.numLicense; else vacio">{{this.user.numLicense}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Genero:</label>
+        <span *ngIf="this.user.gender; else NoSelect">{{this.user.gender}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Pais:</label>
+        <span *ngIf="this.user.country; else NoSelect">{{this.user.country}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Estado civil:</label>
+        <span *ngIf="this.user.typeStateCivil; else NoSelect">{{this.user.typeStateCivil}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Profesión:</label>
+        <span *ngIf="this.user.typeProfession; else NoSelect">{{this.user.typeProfession}}</span>
+      </div>
+      <div class="proflie-field mb-3">
+        <label>Educación:</label>
+        <span *ngIf="this.user.typeEducation; else NoSelect">{{this.user.typeEducation}}</span>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="accent" [routerLink]="['edit']" [queryParams]="{type:'info'}">Editar</button>
+</mat-card>
+
+<ng-template #NoSelect>
+  <span>No especificado</span>
+</ng-template>
+<ng-template #vacio>
+  <span>Sin información</span>
+</ng-template>

@@ -1,0 +1,47 @@
+<!--Navbar-->
+<mdb-navbar SideClass="menu-navigation navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" [containerInside]="false" id="navigation">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand class="nav-logo">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img src="../../../assets/images/home/logo.png">
+    </a>
+  </mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+    <div class="nav-menu-options">
+      <!-- Links -->
+      <ul mdbScrollSpy="scrollspy1" class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light option" [routerLink]="['/']"  fragment="home">Inicio<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light option" [routerLink]="['/']"  fragment="services">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light option" [routerLink]="['/']"  fragment="about">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light option" [routerLink]="['/']"  fragment="blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light option" [routerLink]="['/']"  fragment="contact">Contacto</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Links -->
+
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/session/main-session/signin']">
+          <div class="btn-group">
+            <mdb-icon fas icon="user"></mdb-icon>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </links> 
+  <!-- Collapsible content -->
+</mdb-navbar>
+<!--/.Navbar-->

@@ -1,0 +1,61 @@
+<app-Loader></app-Loader>
+
+<div class="page-header header-filter row justify-content-md-center prueba" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 ml-auto mr-auto ">
+                <div class="card card-login">
+
+                  
+                    <form [formGroup]="login"> 
+                        
+                        <h4 class="card-title" style="text-align: center;">Acceso</h4>
+                        <div class="mb-2">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Cédula de Identidad</mat-label>
+                                    <input matInput placeholder="Cédula de Identidad" formControlName="username" required />
+                                        <mat-error *ngIf="login.get('username').hasError('required') && login.get('username').touched">{{ requerid }}
+                                        </mat-error>
+                                        <mat-error  *ngIf="login.get('username').hasError('pattern') && login.get('username').touched">Por favor imtroduzca un correo valido.
+                                        </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="mb-2">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>PIN</mat-label>
+                                    <input matInput [type]="!hide ? 'password' : 'text'" placeholder="PIN" formControlName="password" maxlength="20" required />
+                                        <button mat-icon-button matSuffix (click)="hide= !hide"[attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                                        </button>
+                                            <mat-error *ngIf="login.get('password').hasError('required') && login.get('password').touched"> {{ requerid }}
+                                            </mat-error>
+                                            <mat-error> {{ errors.password }}
+                                            </mat-error>
+                            </mat-form-field>
+                        </div>
+                            <mat-dialog-actions>
+                                <div class="col-md-12">
+                                    <button mat-raised-button color="primary" class="button-lg button-login"    [disabled]="!login.valid" (click)="onSubmit()">Acceder
+                                    </button>
+                                </div>
+<!--                                 <div class="col-md-12 mt-3 tex-center">
+                                    <a style="cursor: pointer " class="button-lg" (click)="forgotPassword()">¿Olvidaste tu contraseña?
+                                    </a>
+                                </div>
+                                <mat-divider class="mt-4"></mat-divider>
+                                <div class="col-md-12 mt-2 tex-center">
+                                    <span>¿No tienes una cuenta?</span>
+                                    <a style="cursor: pointer; color: #2b468d; " (click)="Register()"> Registrate
+                                    </a>
+                                </div> -->
+                            </mat-dialog-actions>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

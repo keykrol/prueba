@@ -1,0 +1,88 @@
+<mat-card>
+  <h4>Primer inicio de sesión</h4>
+  <form [formGroup]="firstLogin">
+    <div fxLayout="row wrap" class="col-gap">
+      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+        <mat-form-field class="w-100 mb-3">
+          <input onlyLetters matInput placeholder="Pregunta secreta" formControlName="secretQuestion" required>
+          <mat-error
+            *ngIf="firstLogin.get('secretQuestion').hasError('required') && firstLogin.get('secretQuestion').touched">
+            {{requerid}}</mat-error>
+          <mat-error>{{errors.secretQuestion}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input onlyLetters matInput placeholder="Respuesta secreta" formControlName="secretAnswer" required>
+          <mat-error
+            *ngIf="firstLogin.get('secretAnswer').hasError('required') && firstLogin.get('secretAnswer').touched">
+            {{requerid}}</mat-error>
+          <mat-error>
+            {{errors.secretAnswer}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input onlyLetters [type]="!hide ? 'password' : 'text'" matInput placeholder="Nueva contraseña"
+            formControlName="passwordNew" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="firstLogin.get('passwordNew').hasError('required') && firstLogin.get('passwordNew').touched">
+            {{requerid}}
+          </mat-error>
+          <mat-error
+            *ngIf="!firstLogin.get('passwordNew').hasError('required') &&
+         (firstLogin.controls['passwordNew'].pristine || firstLogin.controls['passwordNew'].errors?.validPassword)">
+            No cumple con los requerimientos de contraseña</mat-error>
+          <mat-error>
+            {{errors.passwordNew}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input onlyLetters matInput placeholder="Confirmacióm nueva contraseña" type="password"
+            formControlName="passwordNewRepeat" required>
+          <mat-error
+            *ngIf="firstLogin.get('passwordNewRepeat').hasError('required') && firstLogin.get('passwordNewRepeat').touched">
+            {{requerid}}
+          </mat-error>
+          <mat-error
+            *ngIf="firstLogin.controls['passwordNewRepeat'].pristine || firstLogin.controls['passwordNewRepeat'].errors?.MatchPassword">
+            Las contraseñas no coinciden</mat-error>
+          <mat-error>
+            {{errors.passwordNewRepeat}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+        <mat-card>
+          <h4>Requerimientos de contraseña</h4>
+          <div>
+            <a>
+              <i class="material-icons">subdirectory_arrow_right</i><span>Debe tener un minimo de 8 digitos y un maximo
+                de 16 digitos</span>
+            </a>
+          </div>
+          <div>
+            <a>
+              <i class="material-icons">subdirectory_arrow_right</i><span>Debe tener 2 carateres especiales</span>
+            </a>
+          </div>
+          <div>
+            <a>
+              <i class="material-icons">subdirectory_arrow_right</i><span>Debe tener 2 letras mayusculas</span>
+            </a>
+          </div>
+          <div>
+            <a>
+              <i class="material-icons">subdirectory_arrow_right</i><span>Debe tener 2 numeros</span>
+            </a>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <mat-dialog-actions class="m-0">
+      <button mat-raised-button color="accent" (click)="onSubmit()">Guardar</button>
+      <button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+    </mat-dialog-actions>
+  </form>
+</mat-card>

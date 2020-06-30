@@ -1,0 +1,34 @@
+<mat-toolbar class="embryo-header-toolbar admin-panel-header" fxLayoutAlign="space-between center">
+  <!-- <div class="embryo-ham-icon" tourAnchor="start.tour" >
+     <button class="" mat-mini-fab color="primary" mat-card-icon (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+     </button>
+  </div> -->
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+               <div class="input-group">
+                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                 <div class="input-group-append">
+                   <button class="btn btn-primary" type="button">
+                     <i class="fas fa-search fa-sm"></i>
+                   </button>
+                 </div>
+               </div>
+             </form>
+  <div fxFlex.xs="60" fxFlex.sm="60" fxFlex.md="50" fxFlex.lg="33%" fxFlex.xl="33%">
+   <span fxFlex></span>
+   <div class="list-flex user-tool">
+      <div fxFlex.xs="60" fxFlex.sm="60" fxFlex.md="50" fxFlex.lg="87%" fxFlex.xl="87%">
+         <span fxFlex></span>
+         <div class="">
+
+             <embryo-HeaderUserProfileDropdown></embryo-HeaderUserProfileDropdown>
+ 
+         </div>
+       </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+
+

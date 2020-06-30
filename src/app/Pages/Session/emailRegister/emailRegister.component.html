@@ -1,0 +1,75 @@
+<div class="page-header header-filter row justify-content-md-center prueba">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+              <div class="card card-login">
+
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Correo electrónico</h4>
+                </div>
+
+             <form [formGroup]="eregister">
+
+              <h4 style="text-align: center; color: #092147; font-weight: bold; margin-bottom: 5%; margin-top: 5%;">Seleccione el tipo de Registro</h4>
+
+              <div class="row" style="margin: auto;">
+                <div class="col-md-12">
+                  <mat-radio-group aria-label="Seleccione el tipo de registro" formControlName="rolId" required>
+                    <mat-radio-button  style="padding-right: 20px;" value="1" >Cliente</mat-radio-button>
+                    <mat-radio-button value="2">Conductor</mat-radio-button>
+                  </mat-radio-group>
+                  <mat-error *ngIf="eregister.get('rolId').hasError('required') && eregister.get('rolId').touched">
+                    {{requerid}}
+                  </mat-error>
+                </div>
+                
+              </div>
+
+             <h4 style="text-align: center; color: #092147; font-weight: bold; margin-bottom: 5%; margin-top: 5%;">Ingrese su Correo Eléctronico</h4>
+
+             <div class="row" style="margin: auto; padding-bottom: 10px;">
+               <div class="col-md-12" >
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Correo Electrónico</mat-label>
+                   <input matInput type="text" formControlName="email" placeholder="Correo Electrónico" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" required>
+                 </mat-form-field>
+                 <mat-error *ngIf="eregister.get('email').hasError('required') && eregister.get('email').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="eregister.get('email').hasError('pattern') && eregister.get('email').invalid">
+                  {{patternEmail}}
+                </mat-error>
+                <mat-error>
+                  {{errors.email}}
+                </mat-error>
+               </div>             
+             </div>   
+             
+             <mat-dialog-actions>
+              <div class="row">
+                  <div class="col-md-12 ">
+                      <button mat-raised-button color="primary" class="button-lg button-login"[disabled]="!eregister.valid" (click)="onSubmit()">Enviar
+                      </button>
+                  </div>
+                  <div class="col-md-12 tex-center">
+                      <a class="box"  routerLink="/session/main-session/signin" style=" text-align:center; color: #f44336">Cancelar
+                      </a>
+                  </div>
+              </div>
+          </mat-dialog-actions>
+
+           </form>
+
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+

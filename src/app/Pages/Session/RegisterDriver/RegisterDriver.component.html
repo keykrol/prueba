@@ -1,0 +1,168 @@
+<div class="page-header header-filter row justify-content-md-center prueba" >
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+              <div class="card card-login">
+                  <div class="card-header card-header-primary text-center">
+                      <h4 class="card-title">REGISTRARSE</h4>
+                          <div class="social-line">
+                              <a href="#" class="btn btn-just-icon btn-link icon">
+                                <i class="fab fa-facebook"></i>
+                              </a>
+                              <a href="#" class="btn btn-just-icon btn-link icon">
+                                <i class="fab fa-google-plus"></i>
+                              </a>
+                          </div>
+                  </div>
+
+             <form [formGroup]="register">
+             <div class="row" style="text-align: center; margin-bottom: 5%;">
+             <div class="col-md-5" style="margin: auto; margin-bottom: 10px;">
+             <h5 >CLIENTE</h5>
+             </div>
+             <div class="col-md-2" style="text-align: center; margin-bottom: 10px;">
+               <h5>|</h5>
+             </div>
+             <div class="col-md-5" style="margin: auto; margin-bottom: 10px;">
+               <h5 style="color: #2b468d;">CONDUCTOR</h5>
+             </div>
+             </div>
+
+             <div class="row" style="margin: auto;">
+               <div class="col-md-6" >
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Nombres</mat-label>
+                   <input matInput type="text" formControlName="name" placeholder="Nombres" pattern="[a-zA-Z ]*" required maxlength="15">
+                 </mat-form-field>
+                 <mat-error *ngIf="register.get('name').hasError('required') && register.get('name').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('name').hasError('pattern') && register.get('name').invalid">
+                  {{patternLetters}}
+                </mat-error>
+                <mat-error>
+                  {{errors.name}}
+                </mat-error>
+               </div>
+               <div class="col-md-6" >
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Apellidos</mat-label>
+                   <input matInput type="text" formControlName="lastname" placeholder="Apellidos" pattern="[a-zA-Z ]*" required maxlength="15">
+                 </mat-form-field>
+                 <mat-error *ngIf="register.get('lastname').hasError('required') && register.get('lastname').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('lastname').hasError('pattern') && register.get('lastname').invalid">
+                  {{patternLetters}}
+                </mat-error>
+                <mat-error>
+                  {{errors.lastname}}
+                </mat-error>
+               </div>
+             </div>
+
+             <div class="row" style="margin: auto; padding-bottom: 10px;">
+<!--                <div class="col-md-6" >
+                 <mat-form-field class="w-100" appearance="outline">
+                   <input matInput type="email" formControlName="email" placeholder="Correo Electrónico" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" required>
+                 </mat-form-field>
+                 <mat-error *ngIf="register.get('email').hasError('required') && register.get('email').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('email').hasError('pattern') && register.get('email').invalid">
+                  {{patternEmail}}
+                </mat-error>
+                <mat-error>
+                  {{errors.email}}
+                </mat-error>
+               </div> -->
+               <div class="col-md-6">
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Número Teléfonico</mat-label>
+                   <input matInput only-numbers  type="text" formControlName="phone" placeholder="Número Teléfonico" required pattern="^\d+$" maxlength="14">
+                 </mat-form-field>
+                 <mat-error *ngIf="register.get('phone').hasError('required') && register.get('phone').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('phone').hasError('pattern') && register.get('phone').invalid">
+                  {{patternPhone}}
+                </mat-error>
+                <mat-error>
+                  {{errors.phone}}
+                </mat-error>
+               </div>
+               
+             
+               <div class="col-md-6">
+                 <mat-radio-group aria-label="Select an option" formControlName="AsigAuto" required>
+                   <mat-radio-button  style="margin-right: 10px;"  value="1" >Usar mi auto</mat-radio-button>
+                   <mat-radio-button value="2">Asignarme un auto</mat-radio-button>
+                 </mat-radio-group>
+               </div>
+               
+             </div>
+
+             <div class="row" style="margin: auto; padding-bottom: 10px;">
+              <div class="col-md-1" ></div>
+               <div class="col-md-5" >
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                   <input matInput [type]="!hide ? 'password' : 'text'" formControlName="password" placeholder="Contraseña" required minlength="8" >
+                   <button mat-icon-button matSuffix (click)="hide= !hide"
+                   [attr.aria-label]="'Hide password'"
+                   [attr.aria-pressed]="hide">
+                   <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                 </button>
+                  </mat-form-field>
+                 <mat-error *ngIf="register.get('password').hasError('required') && register.get('password').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('password').hasError('minlength') && register.get('password').invalid">
+                  {{minlengthPass}}
+                </mat-error>
+                <mat-error>
+                  {{errors.password}}
+                </mat-error>
+               </div>
+               
+               <div class="col-md-5">
+                 <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Confirmar Contraseña</mat-label>
+                   <input matInput [type]="!hide ? 'password' : 'text'" formControlName="password2" placeholder="Confirmar Contraseña" required minlength="8">
+                   <button mat-icon-button matSuffix (click)="hide= !hide"
+                   [attr.aria-label]="'Hide password'"
+                   [attr.aria-pressed]="hide">
+                   <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                 </button>
+                  </mat-form-field>
+                 <mat-error *ngIf="register.get('password2').hasError('required') && register.get('password2').touched">
+                  {{requerid}}
+                </mat-error>
+                <mat-error *ngIf="register.get('password2').hasError('minlength') && register.get('password2').invalid">
+                  {{minlengthPass}}
+                </mat-error>
+
+                <mat-error>
+                  {{errors.password2}}
+                </mat-error>
+
+               </div>
+               <div class="col-md-1" ></div>
+               
+             </div>
+
+             <mat-dialog-actions>
+               <div class="col-md-12" style="text-align: center">
+                 <button mat-raised-button  color="primary" class="button-lg button-login" [disabled]="!register.valid" (click)="onSubmit()"><h5 style="color: white;" >CONTINUAR</h5></button>
+
+               </div>
+             </mat-dialog-actions>
+             <div style="text-align: center;margin-top: 20px">
+             <a href="/session/main-session/signin" style="color: #2b468d;">Ya poseo una cuenta</a>
+            </div>
+           </form>
+          </div>
+        </div>
+    </div>
+</div>
+</div>

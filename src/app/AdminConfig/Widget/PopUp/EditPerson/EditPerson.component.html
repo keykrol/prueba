@@ -1,0 +1,170 @@
+
+<mat-dialog-content class="mb-4" style ="max-width: 70vw !important;">
+  <form [formGroup]="editPersonForm" class="popup-card-width w-100">
+      <div>
+          <h2 mat-dialog-title>Modificar Persona</h2>
+      </div>
+
+      <mat-accordion class="example-headers-align">
+          <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>Datos personales</mat-panel-title>
+                  <mat-panel-description>Identificación<mat-icon>account_circle</mat-icon>
+                  </mat-panel-description>
+              </mat-expansion-panel-header>
+      
+          <mat-form-field style =" margin-right: 0%; width: 24%;">
+            <input appOnlyLetter autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="nameFirst" class="form-control" placeholder="Primer nombre" maxlength="20" >
+              <mat-error *ngIf="editPersonForm.controls['nameFirst'].touched && !editPersonForm.controls['nameFirst'].valid">
+                <mat-error *ngIf="editPersonForm.controls['nameFirst'].hasError('required')" class="required alert-error">  
+                  El campo es obligatorio.
+                </mat-error>
+              </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field style =" margin-right: 0%; width: 24%;">
+            <input appOnlyLetter autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="nameSecond" class="form-control" placeholder="Segundo nombre" maxlength="20" >
+          </mat-form-field>
+  
+          <mat-form-field style =" margin-right: 0%; width: 24%;">
+            <input appOnlyLetter autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastNameFirst" class="form-control" placeholder="Primer apellido" maxlength="20" >
+              <mat-error *ngIf="editPersonForm.controls['lastNameFirst'].touched && !editPersonForm.controls['lastNameFirst'].valid">
+                <mat-error *ngIf="editPersonForm.controls['lastNameFirst'].hasError('required')" class="required alert-error">  
+                  El campo es obligatorio.
+                </mat-error>
+              </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field style =" margin-right: 0%; width: 24%;">
+            <input appOnlyLetter autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastNameSecond" class="form-control" placeholder="Segundo apellido " maxlength="20" >
+          </mat-form-field>
+  
+          <mat-form-field style =" margin-right: 0%; width: 12%;">
+            <mat-select matNativeControl  placeholder="Tipo" formControlName ="identificationType">
+              <mat-option  *ngFor="let listReferen of typeListReferen"[(value)]="listReferen.lValue">{{ listReferen.meanLabel }}</mat-option>
+                
+            </mat-select>
+            <mat-error *ngIf="editPersonForm.controls['identificationType'].touched && !editPersonForm.controls['identificationType'].valid">
+              <mat-error *ngIf="editPersonForm.controls['identificationType'].hasError('required')" class="required alert-error">  
+                El campo es obligatorio.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field style =" margin-right: 0%; width: 36%;">
+            <input appOnlyNumber autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="identificationNumber" class="form-control" placeholder="Número de identificación" maxlength="20" >
+              <mat-error *ngIf="editPersonForm.controls['identificationNumber'].touched && !editPersonForm.controls['identificationNumber'].valid">
+                <mat-error *ngIf="editPersonForm.controls['identificationNumber'].hasError('required')" class="required alert-error">  
+                  El campo es obligatorio.
+                </mat-error>
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field style =" margin-right: 0%; width: 48%;">
+            <input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" formControlName="email" class="form-control" placeholder="Correo" maxlength="40" >
+              <mat-error *ngIf="editPersonForm.controls['email'].touched && !editPersonForm.controls['email'].valid">
+                <mat-error *ngIf="editPersonForm.controls['email'].hasError('required')" class="required alert-error">  
+                  El campo es obligatorio.
+                </mat-error>
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field style =" margin-right: 0%; width: 48%;">
+              <input autocomplete="off" oncopy="return false" onpaste ="return false" matInput [matDatepicker]="picker" formControlName="birthDate"  class="form-control" placeholder="Fecha de nacimiento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker>
+          </mat-form-field>      
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" hideToggle>
+              <mat-expansion-panel-header>
+                  <mat-panel-title> Localización </mat-panel-title>
+                      <mat-panel-description>Lugar donde reside<mat-icon>map</mat-icon>
+                      </mat-panel-description>
+              </mat-expansion-panel-header>
+         
+              <div formGroupName="geographies">
+
+                
+                <mat-form-field style =" margin-right: 0%; width: 24%;">
+                  <mat-select  [(ngModel)] = "idCountrys" (selectionChange)="getCountry(idCountrys)" matNativeControl formControlName="idCountry" placeholder="Pais" >
+                      <mat-option *ngFor="let country of COUNTRY" [(value)]=" country.id">{{ country.name }}</mat-option>
+                  </mat-select>
+                  
+              </mat-form-field>
+
+              <mat-form-field style =" margin-right: 0%; width: 24%;">
+                <mat-select  [(ngModel)] = "idfederal" (selectionChange)="getFederal(idfederal)" matNativeControl formControlName="idFederalState" placeholder="Estado" >
+                  <mat-option disabled selected value="null">Federal</mat-option> 
+                  <mat-option *ngFor="let federal of FEDERAL" [(value)]=" federal.id">{{ federal.name }}</mat-option>
+                </mat-select>
+
+              </mat-form-field>
+
+              <mat-form-field style =" margin-right: 0%; width: 24%;">
+                <mat-select [(ngModel)] = "idProvinces" (selectionChange)="getProvince(idProvinces)" matNativeControl formControlName="idProvince" placeholder="Provincia" >
+                  <mat-option disabled selected value="null">Provincia</mat-option> 
+                  <mat-option *ngFor="let province of PROVINCE" [(value)]=" province.id">{{ province.name }}</mat-option>
+                </mat-select>
+                
+              </mat-form-field>
+
+              <mat-form-field style =" margin-right: 0%; width: 24%;">
+                <mat-select [(ngModel)] = "idMunicipalitys" matNativeControl formControlName="idMunicipality" placeholder="Municipio" >
+                  <mat-option disabled selected value="null">Municipio</mat-option>
+                  <mat-option *ngFor="let municipality of MUNICIPALITY" [(value)]=" municipality.id">{{ municipality.name }}</mat-option>
+                </mat-select>
+              
+              </mat-form-field>
+
+                <mat-form-field style ="margin-right: 0%; width: 12%;">
+                  <input appOnlyNumber autocomplete="off" oncopy="return false" onpaste ="return false" matInput formControlName="postalCodeAddress" class="form-control" placeholder="Código Postal" maxlength="4">
+                  
+                </mat-form-field> 
+
+                <mat-form-field style =" margin-right: 0%; width: 36%;">
+                  <input appOnlyLetter autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="city" class="form-control" placeholder="Ciudad" maxlength="20" >
+                    
+                </mat-form-field>
+
+                <mat-form-field style =" margin-right: 0%; width: 48%;">
+                  <textarea autocomplete="off" oncopy="return false" onpaste ="return false" matInput formControlName="urbanizationAddress" class="form-control" placeholder="Urbanización" maxlength="200"></textarea>
+                    
+                </mat-form-field> 
+                
+                <mat-form-field style =" margin-right: 0%; width: 98%;">
+                  <textarea autocomplete="off" oncopy="return false" onpaste ="return false" matInput formControlName="avenueStreet" class="form-control" placeholder="Avenida o calle" maxlength="200"></textarea>
+                  
+                </mat-form-field> 
+            
+                <mat-form-field style =" margin-right: 0%; width: 12%;">
+                  <input autocomplete="off" oncopy="return false" onpaste ="return false" onlyNumbers matInput formControlName="numberLocalPhoneCodeAddress" class="form-control" placeholder="código local" maxlength="4">
+                    
+                </mat-form-field>
+
+                <mat-form-field style =" margin-right: 0%; width: 36%;">
+                  <input appOnlyNumber autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="numberLocalPhoneAddress" class="form-control" placeholder="Número local" maxlength="20" >
+                  
+                </mat-form-field>
+
+                <mat-form-field style =" margin-right: 0%; width: 12%;">
+                  <input autocomplete="off" oncopy="return false" onpaste ="return false" onlyNumbers matInput formControlName="numberCelPhoneCodeAddress" class="form-control" placeholder="Código de telefono" maxlength="4">
+                    
+                </mat-form-field>
+        
+                <mat-form-field style =" margin-right: 0%; width: 36%;">
+                  <input appOnlyNumber autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="numberCelPhoneAddress" class="form-control" placeholder="Número de telefono" maxlength="20" >
+                    
+                </mat-form-field> 
+            </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </form>  
+</mat-dialog-content>	
+
+<mat-dialog-actions class="m-0">
+  <button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+  <button (click)="onFormSubmit()" type="submit" [disabled]="!editPersonForm.valid" mat-raised-button color="warn">Guardar</button>
+</mat-dialog-actions>

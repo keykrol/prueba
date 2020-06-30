@@ -1,0 +1,125 @@
+
+
+.button-lg {
+
+    min-width: 100% !important;
+    min-height: 50px;
+
+}
+
+
+.tex-center{
+    text-align:center;
+ }
+
+.prueba{
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    z-index: 3;
+
+}
+
+@media (min-width: 768px){
+
+    .col-md-6 {
+
+        flex: 0 0 50%;
+        max-width: 100% !important;
+    }
+
+}
+
+.right{
+    padding-right: 8px !important;
+    padding-left: 2px !important;
+}
+
+.left{
+    padding-right: 2px !important;
+    padding-left: 8px !important;
+}
+
+
+.card-login .card-header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -70px !important;
+    padding: 20px 0;
+    margin-bottom: 15px;
+}
+.card [class*="header-"], .card[class*="bg-"] {
+    color: #fff;
+}
+
+.card[_ngcontent-embryo-seo-pre-c6][_ngcontent-embryo-seo-pre-c6] .card-header-primary[_ngcontent-embryo-seo-pre-c6][_ngcontent-embryo-seo-pre-c6] {
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(19, 132, 245, 0.6);
+}
+.card[_ngcontent-embryo-seo-pre-c6][_ngcontent-embryo-seo-pre-c6] .card-header[_ngcontent-embryo-seo-pre-c6][_ngcontent-embryo-seo-pre-c6] {
+    border-radius: 6px;
+    padding: 1rem 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+    background: linear-gradient(60deg, #f44336, #f3857d) !important;
+}
+.card .card-header {
+    border-radius: 3px;
+    padding: 1rem 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+    background: linear-gradient(10deg, #0b0746, #2f89d8);
+}
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.text-center {
+    text-align: center !important;
+}
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.card {
+    padding: 16px;
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0.25rem;
+}
+.card {
+    font-size: .875rem;
+}
+
+.btn-link {
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+}

@@ -1,0 +1,182 @@
+<mat-card>
+  <h4>Modificar Datos</h4>
+  <form [formGroup]="info">
+    <div fxLayout="row wrap" class="col-gap">
+      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyLetterUserAccount #Username type="text" matInput maxlength="10" placeholder="Username" formControlName="username"
+            required>
+          <mat-hint align="end">{{Username.value.length}} / 10</mat-hint>
+          <mat-error *ngIf="info.get('username').hasError('required') && info.get('username').touched">
+            {{requerid}}</mat-error>
+          <mat-error>
+            {{errors.username}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyLetterUserAccount #name matInput maxlength="10" placeholder="Primer nombre" formControlName="name" required>
+          <mat-hint align="end">{{name.value.length}} / 10</mat-hint>
+          <mat-error *ngIf="info.get('name').hasError('required') && info.get('name').touched">
+            {{requerid}}</mat-error>
+          <mat-error>
+            {{errors.name}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyLetterUserAccount #SecondName matInput maxlength="10" placeholder="Segundo nombre" formControlName="secondName">
+          <mat-hint align="end">{{SecondName.value.length}} / 10</mat-hint>
+          <mat-error>
+            {{errors.secondName}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyLetterUserAccount #lastName matInput maxlength="10" placeholder="Primer Apellido" formControlName="lastName" required>
+          <mat-hint align="end">{{lastName.value.length}} / 10</mat-hint>
+          <mat-error>
+            {{errors.lastName}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyLetterUserAccount #secondLastName matInput maxlength="10" placeholder="Segundo apellido"
+            formControlName="secondLastName">
+          <mat-hint align="end">{{secondLastName.value.length}} / 10</mat-hint>
+          <mat-error>
+            {{errors.secondLastname}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input #email matInput maxlength="50" placeholder="Correo electronico" formControlName="email" required>
+          <mat-hint align="end">{{email.value.length}} / 50</mat-hint>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="info.get('email').hasError('required') && info.get('email').touched">
+            {{requerid}}</mat-error>
+          <mat-error *ngIf="info.get('email').invalid">{{getErrorMessage()}}</mat-error>
+          <mat-error>
+            {{errors.email}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="tipo de Identificacion" formControlName="tipeNatRefId" required>
+            <mat-option *ngFor="let typeDoc of typeDocList" value="{{ typeDoc.lvalue }}">{{  typeDoc.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.tipeNatRefId}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input #numIden appOnlyNumbersUserAccount matInput maxlength="8" placeholder="Identificación" formControlName="numIden"
+            required>
+          <mat-hint align="end">{{numIden.value.length}} / 8</mat-hint>
+          <mat-error *ngIf="info.get('numIden').hasError('required') && info.get('numIden').touched">
+            {{requerid}}</mat-error>
+        </mat-form-field>
+        <mat-error>
+          {{errors.numIden}}
+        </mat-error>
+        <mat-form-field class="w-100 mb-3">
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker disabled="false"></mat-datepicker>
+          <mat-error>
+            {{errors.birthDate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input #firstNumPhone matInput maxlength="11" placeholder="Teléfono de contacto"
+            formControlName="firstNumPhone">
+          <mat-hint align="end">{{firstNumPhone.value.length}} / 11</mat-hint>
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error>
+            {{errors.firstNumPhone}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input #secondNumPhone matInput maxlength="11" placeholder="Otro teléfono de contacto"
+            formControlName="secondNumPhone">
+          <mat-hint align="end">{{secondNumPhone.value.length}} / 11</mat-hint>
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error>
+            {{errors.secondNumPhone}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+        <mat-form-field class="w-100 mb-3">
+          <textarea appOnlyLettersNumberUserAccount #address matInput maxlength="150" placeholder="Dirección" formControlName="address"></textarea>
+          <mat-hint align="end">{{address.value.length}} / 150</mat-hint>
+          <mat-icon matSuffix>home</mat-icon>
+          <mat-error>
+            {{errors.address}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyNumbersUserAccount #postalCode matInput maxlength="5" onlyNumbers matInput placeholder="Codigo postal"
+            formControlName="postalCode">
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          <mat-error>
+            {{errors.postalCode}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <input appOnlyNumbersUserAccount #numLicense matInput maxlength="15" onlyNumbers matInput placeholder="Número de licencia"
+            formControlName="numLicense">
+          <mat-hint align="end">{{numLicense.value.length}} / 5</mat-hint>
+          <mat-error>
+            {{errors.numLicense}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="Genero" formControlName="genderRefId">
+            <mat-option *ngFor="let gender of genderList" value="{{ gender.lvalue }}">
+              {{ gender.label }}</mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.genderRefId}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="Pais" formControlName="countryRefId">
+            <mat-option *ngFor="let country of countryList" value="{{ country.lvalue }}">
+              {{ country.label }}</mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.countryRefId}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="Estado civil" formControlName="typeStateCivilRefId">
+            <mat-option *ngFor="let typeStateCivil of typeStateCivilList" value="{{ typeStateCivil.lvalue }}">
+              {{ typeStateCivil.label }}</mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.typeStateCivilRefId}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="Profesión" formControlName="typeProfessionRefId">
+            <mat-option *ngFor="let typeProfession of typeProfessionList" value="{{ typeProfession.lvalue }}">
+              {{ typeProfession.label }}</mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.typeProfessionRefId}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+          <mat-select matNativeControl placeholder="Educación" formControlName="typeEducationRefId">
+            <mat-option *ngFor="let typeEducation of typeEducationList" value="{{ typeEducation.lvalue }}">
+              {{ typeEducation.label }}</mat-option>
+          </mat-select>
+          <mat-error>
+            {{errors.typeProfessionRefId}}
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+      <mat-dialog-actions>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="accent" (click)="submitProfileInfo()">Guardar</button>
+      </mat-dialog-actions>
+    </div>
+  </form>
+</mat-card>

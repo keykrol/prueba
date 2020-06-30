@@ -1,0 +1,45 @@
+.nav-logo {
+  width: 12%;
+}
+
+.nav-menu-options {
+  margin: auto;
+  position: relative;
+  right: 5%;
+}
+
+.navbar-brand {
+  color: #092147;
+}
+
+a.option {
+  color: #262626 !important;
+  margin: 0 15px !important;
+  background-color: transparent !important;
+}
+
+a.option::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  position: relative;
+  right: 15%;
+  background: #e74c3c;
+  transition: width .3s;
+}
+
+a.option:hover::after {
+  width: 130%;
+  transition: width .3s;
+}
+
+@media (max-width: 480px) {
+  .nav-logo {
+    width: 40%;
+  }
+
+  .navbar-nav {
+    padding: 5% 0;
+  }
+}

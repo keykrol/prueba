@@ -1,0 +1,15 @@
+
+@import 'variables';
+@import 'material-theme';
+@import "core/core";
+@import "pages/pages";
+@import "components/components";
+@import "utilities/utilities";
+@import "admin/admin";
+@import "rtl";
+
+/* importar bootstrap, importante libreria jj */
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+

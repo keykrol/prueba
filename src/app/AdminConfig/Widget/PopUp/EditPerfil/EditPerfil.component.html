@@ -1,0 +1,78 @@
+
+<form [formGroup]="editPerfilForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title>Modificar Perfil</h2>
+	</div>	
+	<mat-dialog-content class="mb-4" style ="max-width: 38vw !important;">
+		<div>
+			<div>
+
+				<mat-form-field style =" margin-right: 2%; width: 98%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="name" class="form-control" placeholder="Nombre" maxlength="20" >
+						<mat-error *ngIf="editPerfilForm.controls['name'].touched && !editPerfilForm.controls['name'].valid">
+							<mat-error *ngIf="editPerfilForm.controls['name'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="attempts" class="form-control" placeholder="Intentos" maxlength="10" >
+						<mat-error *ngIf="editPerfilForm.controls['attempts'].touched && !editPerfilForm.controls['attempts'].valid">
+							<mat-error *ngIf="editPerfilForm.controls['attempts'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="expirationDay" class="form-control" placeholder="Día de expiración" maxlength="10" >
+						<mat-error *ngIf="editPerfilForm.controls['expirationDay'].touched && !editPerfilForm.controls['expirationDay'].valid">
+							<mat-error *ngIf="editPerfilForm.controls['expirationDay'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="cantHistory" class="form-control" placeholder="Cantidad " maxlength="10" >
+						<mat-error *ngIf="editPerfilForm.controls['cantHistory'].touched && !editPerfilForm.controls['cantHistory'].valid">
+							<mat-error *ngIf="editPerfilForm.controls['cantHistory'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="lengthMinimum" class="form-control" placeholder="Longitud mínima" maxlength="10" >
+						<mat-error *ngIf="editPerfilForm.controls['lengthMinimum'].touched && !editPerfilForm.controls['lengthMinimum'].valid">
+							<mat-error *ngIf="editPerfilForm.controls['lengthMinimum'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+				<div class="row">
+					<div class="col-md-6">
+						<mat-checkbox class="example-margin" formControlName="characterUpper" >Caracter mayuscula</mat-checkbox>
+					</div>
+					<div class="col-md-6">		
+						<mat-checkbox class="example-margin" formControlName="characterLower">Caracter minuscula</mat-checkbox>
+					</div>
+					<div class="col-md-6">			
+						<mat-checkbox class="example-margin" formControlName="characterNumber">Caracter numerico</mat-checkbox>
+					</div>
+					<div class="col-md-6">		
+						<mat-checkbox class="example-margin" formControlName="characterSpecial">Caracter especial</mat-checkbox>
+					</div>
+				</div>	
+			</div>
+      	</div>
+	</mat-dialog-content>
+	
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!editPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
+	</mat-dialog-actions>
+</form>
+<!-- add-new-user -->

@@ -1,0 +1,25 @@
+<!--  Agregar un medio de transporte  -->
+<form [formGroup]="addHaulierForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title>Agregar medio de transporte</h2>
+	</div>	
+	<mat-dialog-content class="mb-4">
+		<div>
+			<div>		
+				<mat-form-field style =" margin-right: 2%; width: 98%;">
+					<textarea autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLetter  matInput type="text" formControlName ="description" class="form-control" placeholder="Tipo de transporte" maxlength="30"></textarea>
+					<mat-error *ngIf="addHaulierForm.controls['description'].touched && !addHaulierForm.controls['description'].valid">
+						<mat-error *ngIf="addHaulierForm.controls['description'].hasError('required')" class="required alert-error">  
+							El campo es obligatorio.
+						</mat-error>
+					</mat-error>
+				</mat-form-field>
+			</div>
+    	</div>
+	</mat-dialog-content>
+	
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary" class="button">Cancelar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!addHaulierForm.valid" mat-raised-button color="warn">Guardar</button>
+	</mat-dialog-actions>
+</form>

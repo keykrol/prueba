@@ -1,0 +1,42 @@
+<app-Loader></app-Loader>
+
+<div class="page-header header-filter row justify-content-md-center prueba">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+                <div class="card card-login">
+
+                  <div class="card-header card-header-primary text-center">
+                    <h4 class="card-title">Correo electrónico</h4>
+                  </div>
+                  
+                  <form [formGroup]="login">
+                      <div class="mb-4">
+                          <mat-form-field class="w-100" appearance="outline">
+                              <mat-label> Correo electronico</mat-label>
+                                  <input matInput placeholder="Correo electronico" formControlName="email" required >
+                                      <mat-error *ngIf="login.get('email').hasError('required') && login.get('email').touched"> {{requerid}}
+                                      </mat-error>
+                                      <mat-error  *ngIf="login.get('email').hasError('pattern') && login.get('email').touched">Por favor imtroduzca un correo valido.
+                                      </mat-error>
+                          </mat-form-field>
+                      </div> 
+                      <mat-dialog-actions>
+                          <div class="row">
+                              <div class="col-md-12 ">
+                                  <button mat-raised-button color="primary" class="button-lg button-login"[disabled]="!login.valid" (click)="onSubmit()">Enviar
+                                  </button>
+                              </div>
+                            <div class="col-md-12 tex-center">
+                                  <a class="box" color="accent" routerLink="/session/main-session/signin" style=" text-align:center; color: #f44336">Cancelar
+                                  </a>
+                              </div>
+                          </div>
+                      </mat-dialog-actions>
+                  </form>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

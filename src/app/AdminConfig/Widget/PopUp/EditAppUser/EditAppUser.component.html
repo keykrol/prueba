@@ -1,0 +1,79 @@
+<!--
+<form [formGroup]="addRolForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title></h2>
+	</div>	
+	<mat-dialog-content class="mb-4">
+		<div>
+			<div>			
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLettersNumber matInput type="text" formControlName="code" class="form-control" placeholder="Código" maxlength="10" >
+						<mat-error *ngIf="addRolForm.controls['code'].touched && !addRolForm.controls['code'].valid">
+							<mat-error *ngIf="addRolForm.controls['code'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+
+
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLetter  matInput type="text" formControlName ="name" class="form-control" placeholder="Nombre" maxlength="30">
+						<mat-error *ngIf="addRolForm.controls['name'].touched && !addRolForm.controls['name'].valid">
+							<mat-error *ngIf="addRolForm.controls['name'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style =" margin-right: 2%; width: 98%;">
+					<textarea autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLetter  matInput type="text" formControlName ="description" class="form-control" placeholder="Descripción" maxlength="30"></textarea>
+						<mat-error *ngIf="addRolForm.controls['description'].touched && !addRolForm.controls['description'].valid">
+							<mat-error *ngIf="addRolForm.controls['description'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+				</mat-form-field>
+			</div>
+      	</div>
+	</mat-dialog-content>
+	
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!addRolForm.valid" mat-raised-button color="warn">Guardar</button>
+	</mat-dialog-actions>
+</form>
+ add-new-user -->
+
+
+	<div>
+		<h2 mat-dialog-title> Datos del Usuario</h2>
+	</div>	
+	<mat-dialog-content class="mb-4">
+		<div>
+			<div>			
+				<table class="table">
+					<thead>
+					  <tr>
+						<th scope="col">Nombres y Apellidos</th>
+						<th scope="col">Números Telefónicos</th>
+						<th scope="col">Correo Electrónico</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<th scope="row"> Pepe Perez</th>
+						<td>0414-0000000 / 0416-0000000</td>
+						<td>pepe@gmail.com</td>
+					  </tr>
+
+					</tbody>
+				  </table>
+			</div>
+      	</div>
+	</mat-dialog-content>
+	
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+	</mat-dialog-actions>
+
+<!-- add-new-user -->

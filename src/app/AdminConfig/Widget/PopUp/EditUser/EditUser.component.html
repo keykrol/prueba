@@ -1,0 +1,84 @@
+
+<form [formGroup]="editUserForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title>MODIFICAR USUARIO</h2>
+	</div>	
+	<mat-dialog-content class="mb-4" style ="max-width: 45vw !important;">
+		<div>
+			<div>			
+				<mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLettersNumber matInput type="text" formControlName="username" class="form-control" placeholder="Nombre de usuario" >
+						<mat-error *ngIf="editUserForm.controls['username'].touched && !editUserForm.controls['username'].valid">
+							<mat-error *ngIf="editUserForm.controls['username'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style =" margin-right: 2%; width: 48%;">
+					<input autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLettersNumber matInput type="text" formControlName="passAccess" class="form-control" placeholder="Contraseña" >
+						<mat-error *ngIf="editUserForm.controls['passAccess'].touched && !editUserForm.controls['passAccess'].valid">
+							<mat-error *ngIf="editUserForm.controls['passAccess'].hasError('required')" class="required alert-error">  
+								El campo es obligatorio.
+							</mat-error>
+						</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style =" margin-right: 2%; width: 48%;">
+          <mat-select matNativeControl formControlName="idTypeUser" placeholder="Tipo usuario">
+              <mat-option >Seleccione una opción</mat-option>
+              <mat-option *ngFor="let usertype of UsersType" [(value)]=" usertype.id">{{ usertype.typeUser }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="editUserForm.controls['idTypeUser'].touched && !editUserForm.controls['idTypeUser'].valid">
+            <mat-error *ngIf="editUserForm.controls['idTypeUser'].hasError('required')" class="required alert-error">
+              Este campo es obligatorio.
+              </mat-error>  
+             </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style =" margin-right: 2%; width: 48%;">
+        <mat-select matNativeControl formControlName="idPerson" placeholder="Tipo persona">
+          <mat-option >Seleccione una opción</mat-option>
+          <mat-option *ngFor="let person of Person" [(value)]=" person.id">{{ person.nameFirst }} {{ person.lastNameFirst }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="editUserForm.controls['idPerson'].touched && !editUserForm.controls['idPerson'].valid">
+          <mat-error *ngIf="editUserForm.controls['idPerson'].hasError('required')" class="required alert-error">
+            Este campo es obligatorio.
+            </mat-error>  
+           </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style =" margin-right: 2%; width: 48%;">
+        <mat-select matNativeControl formControlName="idPerfil" placeholder="Tipo perfil">
+          <mat-option >Seleccione una opción</mat-option>
+          <mat-option *ngFor="let profile of Profile" [(value)]=" profile.id">{{ profile.name }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="editUserForm.controls['idPerfil'].touched && !editUserForm.controls['idPerfil'].valid">
+          <mat-error *ngIf="editUserForm.controls['idPerfil'].hasError('required')" class="required alert-error">
+            Este campo es obligatorio.
+            </mat-error>  
+           </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style =" margin-right: 2%; width: 48%;">
+        <input autocomplete="off" oncopy="return false" onpaste ="return false" appOnlyLettersNumber matInput type="text" formControlName="attempt" class="form-control" placeholder="Intentos" maxlength="10" >
+          <mat-error *ngIf="editUserForm.controls['attempt'].touched && !editUserForm.controls['attempt'].valid">
+            <mat-error *ngIf="editUserForm.controls['attempt'].hasError('required')" class="required alert-error">  
+              El campo es obligatorio.
+            </mat-error>
+          </mat-error>
+      </mat-form-field>
+      
+			</div>
+      	</div>
+	</mat-dialog-content>
+	
+
+</form>
+<!-- add-new-user -->
+
+<mat-dialog-actions class="m-0">
+  <button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+  <button (click)="onFormSubmit()" type="submit" [disabled]="!editUserForm.valid" mat-raised-button color="warn">Guardar</button>
+</mat-dialog-actions>
+

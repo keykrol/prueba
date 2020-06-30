@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    scroll-behavior: smooth;
+}
+a, p, .btn {
+    font-family: 'Oswald', sans-serif;
+    /*font-size: 14px;*/
+    letter-spacing: .3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    color: #3D3D3D;
+}
+
+h1 {
+    text-align: center !important;
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 1.5rem !important;
+}
+
+p, a {
+    font-size: 1rem !important;
+}
+
+section {
+    padding-top: 100px;
+}
+
+.gradient {
+    background: rgba(9,33,71,1);
+    background: -moz-linear-gradient(-45deg, rgba(9,33,71,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(9,33,71,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(9,33,71,1) 0%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(9,33,71,1) 0%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(9,33,71,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(135deg, rgba(9,33,71,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#092147', endColorstr='#000000', GradientType=1 );
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: .7;
+    width: 100%;
+    height: 100%;
+}
+
+
+.menu-navigation.navbar.scrolling-navbar.top-nav-collapse {
+    background: #092147 !important;
+}
+
+.menu-navigation.navbar.scrolling-navbar.top-nav-collapse a.option,
+.menu-navigation.navbar.scrolling-navbar.top-nav-collapse a {
+    color: #fff !important;
+}
+
+.navbar.navbar-light .navbar-toggler-icon  {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(38, 38, 38, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+
+}
+
+.menu-navigation.navbar.scrolling-navbar.top-nav-collapse .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+  
+}
+
+@media (max-width: 480px) {
+   h1 {
+    font-size: 2.5rem !important;
+   }
+
+   h2 {
+       font-size: 2rem !important;
+   }
+
+   p {
+       font-size: 1.2rem !important;
+   }
+}
+
+@media (max-width: 768px) { 
+    h2 {
+        font-size: 2.8rem;
+    }
+ 
+    p {
+        font-size: 2.2rem;
+    }
+ }

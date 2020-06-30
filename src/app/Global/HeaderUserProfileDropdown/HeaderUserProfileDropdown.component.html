@@ -1,0 +1,9 @@
+<button mat-mini-fab [matMenuTriggerFor]="loginuser" color="primary">
+  <i class="material-icons">account_circle</i>
+  <mat-menu #loginuser="matMenu">
+    <button mat-menu-item fxLayoutAlign="start center" [routerLink]="['/account/profile']"><i
+        class="material-icons mr-1">account_circle</i> <span>Perfil</span>
+    </button>
+    <button mat-menu-item (click)=sessionClose()><i class="material-icons mr-1">power_settings_new</i><span>Cerrar
+        session</span></button>
+  </mat-menu>
