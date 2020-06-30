@@ -1,0 +1,80 @@
+
+<mat-card class="py-4 pb-3">
+ 
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+     
+   
+ 
+   <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+       <div class="pr-3">
+         <div class="dash-title" >Empleados</div>
+      </div>
+     </div>
+ 
+     <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.lg="30" fxFlex.xl="30" style="text-align: right;">
+      <div class="contact-btn" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="300px" fxFlex.lg="300px" fxFlex.xl="300px"> 
+        <button class="" mat-raised-button style="background-color: darkgray;" (click)="addPerfil()" >Agregar<mat-icon class="ml-2">add</mat-icon></button>
+     </div>  
+    </div>
+   
+ </div>
+ 
+ </mat-card>
+
+<mat-card>
+    <ng-container>
+        <div class="table-responsive-x">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 table-scroll-wrap">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Attempts Column -->
+            <ng-container matColumnDef="attempts">
+              <th mat-header-cell *matHeaderCellDef> Intentos </th>
+              <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
+            </ng-container>
+
+            <!-- Expiracion day Column -->
+            <ng-container matColumnDef="expirationDay">
+              <th mat-header-cell *matHeaderCellDef> Días de expiración </th>
+              <td mat-cell *matCellDef="let element"> {{element.expirationDay}} </td>
+            </ng-container>
+
+            <!-- Cant Column -->
+            <ng-container matColumnDef="cantHistory">
+              <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+              <td mat-cell *matCellDef="let element"> {{element.cantHistory}} </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="boolDelete">
+              <th class="px-3" mat-header-cell *matHeaderCellDef> Estatus </th>
+              <td class="px-3" mat-cell *matCellDef="let element">
+                <mat-slide-toggle style =" margin-right: 6% !important;"  [checked]="element.boolDelete === true ? true : false" (change)="setValue( element,$event)"> 
+                </mat-slide-toggle>
+                <span *ngIf="element.boolDelete; then Temptrue else Tempfalse"></span>
+                <ng-template #Tempfalse>Inactivo</ng-template>
+                <ng-template #Temptrue>Activo</ng-template>
+             </td>
+            </ng-container>
+
+            <!-- Edit Column -->
+            <ng-container matColumnDef="edit">
+              <th class="px-3" mat-header-cell *matHeaderCellDef> Modificar </th>
+                <td class="px-3" mat-cell *matCellDef="let element"> 
+                  <mat-icon  (click)="editPerfil(element)"aria-hidden="false" color="primary" style="cursor: pointer"aria-label="Example home icon">edit</mat-icon> 
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </ng-container>
+</mat-card>

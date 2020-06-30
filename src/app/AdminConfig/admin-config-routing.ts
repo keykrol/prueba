@@ -22,6 +22,14 @@ export const AdminConfigRoutes : Routes = [
             path: 'usuario',
             loadChildren: './Perfil/Perfil.module#PerfilModule'
          }, 
+         {
+            path: 'access',
+            loadChildren: './Access/Access.module#AccessModule'
+         }, 
+         {
+            path: 'employee',
+            loadChildren: './Employee/Employee.module#EmployeeModule'
+         }, 
         /*  {
             path: 'usuario',
             loadChildren: './User/User.module#UserModule'

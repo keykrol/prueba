@@ -30,7 +30,7 @@ export interface ChildrenItems {
       children: [
        
           {state: 'usuario', name: '- Usuario',type : 'link'},
-          {state: 'rol', name: '- Acceso',type : 'link'},
+          {state: 'access', name: '- Acceso',type : 'link'},
           {state: 'perfil', name: '- Sistema',type : 'link'},
         
 
@@ -43,7 +43,12 @@ export interface ChildrenItems {
       icon: 'directions_car', /* directions_car */
       children: [
 
-          {state: 'haulier', name: '- Empleados',type : 'link'},
+          {state: 'employee', name: '- Empleados',type : 'link'},
+          {state: 'change', name: '- Incremento y/o Cambio de Cargo',type : 'link'},
+          {state: 'grade', name: '- Grados',type : 'link'},
+          {state: 'scale', name: '- Escalas',type : 'link'},
+          {state: 'comission', name: '- Comisiones',type : 'link'},
+          {state: 'auth', name: '- Autorizadores',type : 'link'},
         
       ]
     },
