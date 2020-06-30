@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
+
 @Component({
   selector: 'app-AddPerfil',
   templateUrl: './AddPerfil.component.html',
@@ -16,22 +17,17 @@ export class AddPerfilComponent implements OnInit {
 				
 	ngOnInit() {
 		this.addPerfilForm = this.formBuilder.group({
+			user		 		        	: ['',[Validators.required]],
 			name 		 		        	: ['',[Validators.required]],
-			attempts 		 		        : ['',[Validators.required]],
-			expirationDay					: ['',[]],
-			cantHistory       			    : ['',[]],
-			lengthMinumum 		 			: ['',[]],
-			characterUpper					: [false,[]],
-			characterLower					: [false,[]],
-			characterNumber					: [false,[]],
-			characterSpecial				: [false,[]],
-			lengthMinimum					: ['8',[]],
-			idStatus						: ['1',[]],
-			startDate 		 				: ['',[]],
-			startIdUser		 				: ['',[]],
-			updateDate		 				: ['',[]],
-			updateIdUser		 			: ['',[]],
-			booldelete			 			: ['',[]],
+			lastname 		 		        : ['',[Validators.required]],
+			planta					: ['',[]],
+			telephone       			    : ['',[]],
+			telephonec 		 			: ['',[]],
+			superuser					: [false,[]],
+			notification					: [false,[]],
+			email					: ['',[]],
+			state						: ['',[]],
+			lastacces 		 				: ['',[]],
 		})
 	}
 

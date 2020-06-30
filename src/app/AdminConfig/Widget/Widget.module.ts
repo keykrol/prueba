@@ -36,6 +36,8 @@ import { AddUserComponent } 										from './PopUp/AddUser/AddUser.component';
 import { EditUserComponent } 										from './PopUp/EditUser/EditUser.component';
 import { AddLanguageComponent } 									from './PopUp/AddLanguage/AddLanguage.component';
 import { OnlyLetterDirective } 										from '../Directive/only-letter.directive';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
 	declarations: [
@@ -76,7 +78,8 @@ import { OnlyLetterDirective } 										from '../Directive/only-letter.directiv
 		FlexLayoutModule,
 		RouterModule,
 		MatListModule,
-		MatExpansionModule
+		MatExpansionModule,
+		MatTabsModule
 		
 	],
 	exports : [

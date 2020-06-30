@@ -1,7 +1,8 @@
 
+<!--
 <form [formGroup]="addPerfilForm" class="popup-card-width w-100">
-	<div>999999999999999999999
-		<h2 mat-dialog-title>Agregar Perfil</h2>
+	<div>
+		<h2 mat-dialog-title>Agregar Usuario</h2>
 	</div>	
 	<mat-dialog-content class="mb-4" style ="max-width: 40vw !important;">
 		<div>
@@ -75,4 +76,232 @@
 		<button (click)="onFormSubmit()" type="submit" [disabled]="!addPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
 	</mat-dialog-actions>
 </form>
-<!-- add-new-user -->
+ add-new-user -->
+
+ <form [formGroup]="addPerfilForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title>Información del Usuario</h2>
+	</div>	
+	<mat-dialog-content class="mb-4" style="width: 750px; height: 500px;">
+
+		<mat-tab-group>
+			<mat-tab label="Usuarios"> 
+					  <!--primer tab-->
+		  
+					  <div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+								<div class="col-md-3">
+								<label>Usuario</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="user" class="form-control"  maxlength="20" >
+							</div>
+						</div>
+							</div>
+						<div class="col-md-6">
+		2
+						</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Nombre(s)</label>
+							</div>
+									<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="name" class="form-control"  maxlength="20" >
+							</div>
+						</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Planta</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="planta" class="form-control"  maxlength="20" >
+							</div>
+							</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Apellido(s)</label>
+								</div>
+									<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastname" class="form-control"  maxlength="20" >
+							</div>
+							</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Nro. Telefono</label>
+								</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="telephone" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Email</label>
+									</div>
+									<div class="col-md-3">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="email" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Nro. de Celular</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="telephonec" class="form-control"  maxlength="20" >
+									</div>
+									</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<mat-checkbox class="example-margin" formControlName="superuser" >Es Super Usuario</mat-checkbox>
+		
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Estado</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="status" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<mat-checkbox class="example-margin" formControlName="notification" >Recibir notificacione</mat-checkbox>
+		
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Último Acceso</label>
+								</div>
+								<div class="col-md-3">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastacces" class="form-control"  maxlength="20" >
+									</div>
+									</div>
+							</div>
+						</div>
+
+					</div> <!--primer tab-->
+			</mat-tab>
+			<mat-tab label="Permisos"> 
+						  <!--primer tab-->
+		  
+			<div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Visualización de cargos
+						</label>
+
+
+					</div>
+				<div class="col-md-6">
+					<mat-checkbox class="example-margin" formControlName="notification" >Todos</mat-checkbox>
+						<mat-checkbox class="example-margin" formControlName="notification" >Gerentes</mat-checkbox>
+						<mat-checkbox class="example-margin" formControlName="notification" >Jefes</mat-checkbox>
+				</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<label>Visualizaciones de Plantas</label>
+
+					</div>
+				<div class="col-md-6">
+					<div class="row">
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+					</div>
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+					</div>
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+					</div>
+					</div>
+				
+					<div class="row">
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+						</div>
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+						</div>
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+						</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+							</div>
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+							</div>
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+							</div>
+							</div>
+				</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<label>Modulos</label>
+						<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastname" class="form-control"  maxlength="20" >
+
+					</div>
+				<div class="col-md-6">
+					<mat-checkbox class="example-margin" formControlName="notification" >Usuarios</mat-checkbox>
+				</div>
+				</div>
+
+
+
+			</div> <!--primer tab-->
+
+
+			</mat-tab>
+
+		  </mat-tab-group>
+
+
+
+		  
+		  <!--termino los tab con contenido-->
+	</mat-dialog-content>
+	<div>
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!addPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
+	</mat-dialog-actions>
+</div>
+</form>
+
+
