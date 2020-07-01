@@ -9,15 +9,8 @@
        <div class="pr-3">
          <div class="dash-title" >Accesos</div>
       </div>
-     </div>
- 
-     <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.lg="30" fxFlex.xl="30" style="text-align: right;">
-      <div class="contact-btn" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="300px" fxFlex.lg="300px" fxFlex.xl="300px"> 
-        <button class="" mat-raised-button style="background-color: darkgray;" (click)="addPerfil()" >Agregar<mat-icon class="ml-2">add</mat-icon></button>
      </div>  
-    </div>
-   
- </div>
+  </div>
  
  </mat-card>
 
@@ -28,46 +21,33 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <th mat-header-cell *matHeaderCellDef> Usuario </th>
               <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
             <!-- Attempts Column -->
-            <ng-container matColumnDef="attempts">
-              <th mat-header-cell *matHeaderCellDef> Intentos </th>
-              <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Acción </th>
+              <td mat-cell *matCellDef="let element"> {{element.action}} </td>
             </ng-container>
 
             <!-- Expiracion day Column -->
-            <ng-container matColumnDef="expirationDay">
-              <th mat-header-cell *matHeaderCellDef> Días de expiración </th>
-              <td mat-cell *matCellDef="let element"> {{element.expirationDay}} </td>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Fecha y Hora </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
             </ng-container>
 
             <!-- Cant Column -->
-            <ng-container matColumnDef="cantHistory">
-              <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-              <td mat-cell *matCellDef="let element"> {{element.cantHistory}} </td>
+            <ng-container matColumnDef="ip">
+              <th mat-header-cell *matHeaderCellDef> Dirección IP </th>
+              <td mat-cell *matCellDef="let element"> {{element.ip}} </td>
             </ng-container>
 
-            <!-- Status Column -->
-            <ng-container matColumnDef="boolDelete">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Estatus </th>
-              <td class="px-3" mat-cell *matCellDef="let element">
-                <mat-slide-toggle style =" margin-right: 6% !important;"  [checked]="element.boolDelete === true ? true : false" (change)="setValue( element,$event)"> 
-                </mat-slide-toggle>
-                <span *ngIf="element.boolDelete; then Temptrue else Tempfalse"></span>
-                <ng-template #Tempfalse>Inactivo</ng-template>
-                <ng-template #Temptrue>Activo</ng-template>
-             </td>
-            </ng-container>
 
             <!-- Edit Column -->
-            <ng-container matColumnDef="edit">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Modificar </th>
-                <td class="px-3" mat-cell *matCellDef="let element"> 
-                  <mat-icon  (click)="editPerfil(element)"aria-hidden="false" color="primary" style="cursor: pointer"aria-label="Example home icon">edit</mat-icon> 
-                </td>
+            <ng-container matColumnDef="broswer">
+              <th mat-header-cell *matHeaderCellDef> Navegador Web </th>
+              <td mat-cell *matCellDef="let element"> {{element.broswer}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

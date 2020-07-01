@@ -25,7 +25,7 @@ export class EmployeeComponent implements OnInit {
       this.getProfile();
   }
 
-  displayedColumns: string[] = ['name', 'attempts', 'expirationDay', 'cantHistory','boolDelete', 'edit'];
+  displayedColumns: string[] = ['action', 'code', 'planta', 'fullname','email', 'pin', 'asig'];
   dataSource = new MatTableDataSource<any>();
  
   popUpPerfilResponse       : any;

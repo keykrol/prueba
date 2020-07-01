@@ -44,11 +44,11 @@ export interface ChildrenItems {
       children: [
 
           {state: 'employee', name: '- Empleados',type : 'link'},
-          {state: 'change', name: '- Incremento y/o Cambio de Cargo',type : 'link'},
+          {state: 'increase', name: '- Incremento y/o Cambio de Cargo',type : 'link'},
           {state: 'grade', name: '- Grados',type : 'link'},
           {state: 'scale', name: '- Escalas',type : 'link'},
           {state: 'comission', name: '- Comisiones',type : 'link'},
-          {state: 'auth', name: '- Autorizadores',type : 'link'},
+          {state: 'authp', name: '- Autorizadores',type : 'link'},
         
       ]
     },

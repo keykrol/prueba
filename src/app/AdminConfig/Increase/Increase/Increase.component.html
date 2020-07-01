@@ -7,7 +7,7 @@
  
    <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
        <div class="pr-3">
-         <div class="dash-title" >Usuarios</div>
+         <div class="dash-title" >Incremento y/o Cambio de Cargo</div>
       </div>
      </div>
  
@@ -28,31 +28,31 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
             <!-- Attempts Column -->
             <ng-container matColumnDef="attempts">
-              <th mat-header-cell *matHeaderCellDef> Usuarios </th>
+              <th mat-header-cell *matHeaderCellDef> Intentos </th>
               <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
             </ng-container>
 
             <!-- Expiracion day Column -->
             <ng-container matColumnDef="expirationDay">
-              <th mat-header-cell *matHeaderCellDef> Nombre(s) </th>
+              <th mat-header-cell *matHeaderCellDef> Días de expiración </th>
               <td mat-cell *matCellDef="let element"> {{element.expirationDay}} </td>
             </ng-container>
 
             <!-- Cant Column -->
             <ng-container matColumnDef="cantHistory">
-              <th mat-header-cell *matHeaderCellDef> Apellidos(s) </th>
+              <th mat-header-cell *matHeaderCellDef> Cantidad </th>
               <td mat-cell *matCellDef="let element"> {{element.cantHistory}} </td>
             </ng-container>
 
             <!-- Status Column -->
-            <!-- <ng-container matColumnDef="boolDelete">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Nro. de Teléfono </th>
+            <ng-container matColumnDef="boolDelete">
+              <th class="px-3" mat-header-cell *matHeaderCellDef> Estatus </th>
               <td class="px-3" mat-cell *matCellDef="let element">
                 <mat-slide-toggle style =" margin-right: 6% !important;"  [checked]="element.boolDelete === true ? true : false" (change)="setValue( element,$event)"> 
                 </mat-slide-toggle>
@@ -60,49 +60,14 @@
                 <ng-template #Tempfalse>Inactivo</ng-template>
                 <ng-template #Temptrue>Activo</ng-template>
              </td>
-            </ng-container> -->
-
-            <ng-container matColumnDef="boolDelete">
-              <th mat-header-cell *matHeaderCellDef> Teléfono </th>
-              <td mat-cell *matCellDef="let element"> {{element.boolDelete}} </td>
             </ng-container>
-
-            
 
             <!-- Edit Column -->
             <ng-container matColumnDef="edit">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Celular </th>
-              <td mat-cell *matCellDef="let element"> {{element.edit}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Email </th>
-              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="planta">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Planta </th>
-              <td mat-cell *matCellDef="let element"> {{element.planta}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="superuser">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Súp </th>
-              <td mat-cell *matCellDef="let element"> {{element.superuser}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="access">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Último Acceso </th>
-              <td mat-cell *matCellDef="let element"> {{element.access}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="notification">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Recibir Notificaciones </th>
-              <td mat-cell *matCellDef="let element"> {{element.notification}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="state">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+              <th class="px-3" mat-header-cell *matHeaderCellDef> Modificar </th>
+                <td class="px-3" mat-cell *matCellDef="let element"> 
+                  <mat-icon  (click)="editPerfil(element)"aria-hidden="false" color="primary" style="cursor: pointer"aria-label="Example home icon">edit</mat-icon> 
+                </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

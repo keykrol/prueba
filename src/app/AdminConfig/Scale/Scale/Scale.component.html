@@ -1,0 +1,70 @@
+
+<mat-card class="py-4 pb-3">
+ 
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+     
+   
+ 
+   <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="40" fxFlex.lg="40" fxFlex.xl="40">
+       <div class="pr-3">
+         <div class="dash-title" >Escalas</div>
+      </div>
+     </div>
+ 
+     <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.lg="30" fxFlex.xl="30" style="text-align: right;">
+      <mat-form-field appearance="outline">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>  
+    </div>
+   
+ </div>
+ 
+ </mat-card>
+
+<mat-card>
+    <ng-container>
+        <div class="table-responsive-x">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 table-scroll-wrap">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+            </ng-container>
+
+            <!-- Attempts Column -->
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef> Código </th>
+              <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
+
+            <!-- Expiracion day Column -->
+            <ng-container matColumnDef="grade">
+              <th mat-header-cell *matHeaderCellDef> Grado </th>
+              <td mat-cell *matCellDef="let element"> {{element.grade}} </td>
+            </ng-container>
+
+            <!-- Cant Column -->
+            <ng-container matColumnDef="minvalue">
+              <th mat-header-cell *matHeaderCellDef> Valor Mínimo </th>
+              <td mat-cell *matCellDef="let element"> {{element.minvalue}} </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="maxvalue">
+              <th mat-header-cell *matHeaderCellDef> Valor Máximo </th>
+              <td mat-cell *matCellDef="let element"> {{element.maxvalue}} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </ng-container>
+</mat-card>

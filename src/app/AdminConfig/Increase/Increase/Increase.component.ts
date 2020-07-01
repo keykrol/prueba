@@ -7,11 +7,11 @@ import { EditPerfilComponent }                                          from '..
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-Perfil',
-  templateUrl: './Perfil.component.html',
-  styleUrls: ['./Perfil.component.css']
+  selector: 'app-Increase',
+  templateUrl: './Increase.component.html',
+  styleUrls: ['./Increase.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class IncreaseComponent implements OnInit {
 
   public Profile           : Profile[];
   dataClean                : Profile[] = [];
@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
       this.getProfile();
   }
 
-  displayedColumns: string[] = ['name', 'attempts', 'expirationDay', 'cantHistory','boolDelete', 'edit', 'email', 'planta', 'superuser', 'access', 'notification', 'state' ];
+  displayedColumns: string[] = ['name', 'attempts', 'expirationDay', 'cantHistory','boolDelete', 'edit'];
   dataSource = new MatTableDataSource<any>();
  
   popUpPerfilResponse       : any;

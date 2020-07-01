@@ -30,6 +30,27 @@ export const AdminConfigRoutes : Routes = [
             path: 'employee',
             loadChildren: './Employee/Employee.module#EmployeeModule'
          }, 
+         {
+            path: 'increase',
+            loadChildren: './Increase/Increase.module#IncreaseModule'
+         }, 
+         {
+            path: 'grade',
+            loadChildren: './Grade/Grade.module#GradeModule'
+         },
+         {
+            path: 'scale',
+            loadChildren: './Scale/Scale.module#ScaleModule'
+         },
+         {
+            path: 'comission',
+            loadChildren: './Comission/Comission.module#ComissionModule'
+         },
+         {
+            path: 'authp',
+            loadChildren: './AuthP/AuthP.module#AuthPModule'
+         }
+         
         /*  {
             path: 'usuario',
             loadChildren: './User/User.module#UserModule'

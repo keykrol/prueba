@@ -25,7 +25,7 @@ export class AccessComponent implements OnInit {
       this.getProfile();
   }
 
-  displayedColumns: string[] = ['name', 'attempts', 'expirationDay', 'cantHistory','boolDelete', 'edit'];
+  displayedColumns: string[] = ['name', 'action', 'date', 'ip','broswer'];
   dataSource = new MatTableDataSource<any>();
  
   popUpPerfilResponse       : any;

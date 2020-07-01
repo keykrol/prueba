@@ -13,7 +13,13 @@
  
      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.lg="30" fxFlex.xl="30" style="text-align: right;">
       <div class="contact-btn" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="300px" fxFlex.lg="300px" fxFlex.xl="300px"> 
-        <button class="" mat-raised-button style="background-color: darkgray;" (click)="addPerfil()" >Agregar<mat-icon class="ml-2">add</mat-icon></button>
+        <button class="" mat-raised-button style="background-color: darkgray;"  >Asignar PIN a Todos<mat-icon class="ml-2">add</mat-icon></button>
+     </div>  
+    </div>
+
+    <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.lg="30" fxFlex.xl="30" style="text-align: right;">
+      <div class="contact-btn" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="300px" fxFlex.lg="300px" fxFlex.xl="300px"> 
+        <button class="" mat-raised-button style="background-color: darkgray;"  >Imprimir PIN para Todos<mat-icon class="ml-2">add</mat-icon></button>
      </div>  
     </div>
    
@@ -27,47 +33,44 @@
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 table-scroll-wrap">
 
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Nombre </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let element"> {{element.action}} </td>
             </ng-container>
 
             <!-- Attempts Column -->
-            <ng-container matColumnDef="attempts">
-              <th mat-header-cell *matHeaderCellDef> Intentos </th>
-              <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef> Código </th>
+              <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="planta">
+              <th mat-header-cell *matHeaderCellDef> Planta </th>
+              <td mat-cell *matCellDef="let element"> {{element.planta}} </td>
             </ng-container>
 
             <!-- Expiracion day Column -->
-            <ng-container matColumnDef="expirationDay">
-              <th mat-header-cell *matHeaderCellDef> Días de expiración </th>
-              <td mat-cell *matCellDef="let element"> {{element.expirationDay}} </td>
+            <ng-container matColumnDef="fullname">
+              <th mat-header-cell *matHeaderCellDef> Nombre(s) y Apellido(s) </th>
+              <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
             </ng-container>
 
             <!-- Cant Column -->
-            <ng-container matColumnDef="cantHistory">
-              <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-              <td mat-cell *matCellDef="let element"> {{element.cantHistory}} </td>
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> E-mail </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
             </ng-container>
 
             <!-- Status Column -->
-            <ng-container matColumnDef="boolDelete">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Estatus </th>
-              <td class="px-3" mat-cell *matCellDef="let element">
-                <mat-slide-toggle style =" margin-right: 6% !important;"  [checked]="element.boolDelete === true ? true : false" (change)="setValue( element,$event)"> 
-                </mat-slide-toggle>
-                <span *ngIf="element.boolDelete; then Temptrue else Tempfalse"></span>
-                <ng-template #Tempfalse>Inactivo</ng-template>
-                <ng-template #Temptrue>Activo</ng-template>
-             </td>
+            <ng-container matColumnDef="pin">
+              <th mat-header-cell *matHeaderCellDef> PIN Asignado </th>
+              <td mat-cell *matCellDef="let element"> {{element.pin}} </td>
             </ng-container>
 
             <!-- Edit Column -->
-            <ng-container matColumnDef="edit">
-              <th class="px-3" mat-header-cell *matHeaderCellDef> Modificar </th>
-                <td class="px-3" mat-cell *matCellDef="let element"> 
-                  <mat-icon  (click)="editPerfil(element)"aria-hidden="false" color="primary" style="cursor: pointer"aria-label="Example home icon">edit</mat-icon> 
-                </td>
+            <ng-container matColumnDef="asig">
+              <th mat-header-cell *matHeaderCellDef> Última Asignación de PIN </th>
+              <td mat-cell *matCellDef="let element"> {{element.asig}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
