@@ -78,6 +78,7 @@ export class PerfilComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+
   ngOnInit() {
   }
 // applyFilter(event: Event) {

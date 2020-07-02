@@ -1,16 +1,17 @@
 
-<form [formGroup]="editPerfilForm" class="popup-card-width w-100">
+<!--
+<form [formGroup]="addPerfilForm" class="popup-card-width w-100">
 	<div>
-		<h2 mat-dialog-title>Modificar Perfil</h2>
+		<h2 mat-dialog-title>Agregar Usuario</h2>
 	</div>	
-	<mat-dialog-content class="mb-4" style ="max-width: 38vw !important;">
+	<mat-dialog-content class="mb-4" style ="max-width: 40vw !important;">
 		<div>
 			<div>
 
 				<mat-form-field style =" margin-right: 2%; width: 98%;">
 					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="name" class="form-control" placeholder="Nombre" maxlength="20" >
-						<mat-error *ngIf="editPerfilForm.controls['name'].touched && !editPerfilForm.controls['name'].valid">
-							<mat-error *ngIf="editPerfilForm.controls['name'].hasError('required')" class="required alert-error">  
+						<mat-error *ngIf="addPerfilForm.controls['name'].touched && !addPerfilForm.controls['name'].valid">
+							<mat-error *ngIf="addPerfilForm.controls['name'].hasError('required')" class="required alert-error">  
 								El campo es obligatorio.
 							</mat-error>
 						</mat-error>
@@ -18,8 +19,8 @@
 
 				<mat-form-field style =" margin-right: 2%; width: 48%;">
 					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="attempts" class="form-control" placeholder="Intentos" maxlength="10" >
-						<mat-error *ngIf="editPerfilForm.controls['attempts'].touched && !editPerfilForm.controls['attempts'].valid">
-							<mat-error *ngIf="editPerfilForm.controls['attempts'].hasError('required')" class="required alert-error">  
+						<mat-error *ngIf="addPerfilForm.controls['attempts'].touched && !addPerfilForm.controls['attempts'].valid">
+							<mat-error *ngIf="addPerfilForm.controls['attempts'].hasError('required')" class="required alert-error">  
 								El campo es obligatorio.
 							</mat-error>
 						</mat-error>
@@ -27,8 +28,8 @@
 
 				<mat-form-field style =" margin-right: 2%; width: 48%;">
 					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="expirationDay" class="form-control" placeholder="Día de expiración" maxlength="10" >
-						<mat-error *ngIf="editPerfilForm.controls['expirationDay'].touched && !editPerfilForm.controls['expirationDay'].valid">
-							<mat-error *ngIf="editPerfilForm.controls['expirationDay'].hasError('required')" class="required alert-error">  
+						<mat-error *ngIf="addPerfilForm.controls['expirationDay'].touched && !addPerfilForm.controls['expirationDay'].valid">
+							<mat-error *ngIf="addPerfilForm.controls['expirationDay'].hasError('required')" class="required alert-error">  
 								El campo es obligatorio.
 							</mat-error>
 						</mat-error>
@@ -36,17 +37,17 @@
 
 				<mat-form-field style =" margin-right: 2%; width: 48%;">
 					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="cantHistory" class="form-control" placeholder="Cantidad " maxlength="10" >
-						<mat-error *ngIf="editPerfilForm.controls['cantHistory'].touched && !editPerfilForm.controls['cantHistory'].valid">
-							<mat-error *ngIf="editPerfilForm.controls['cantHistory'].hasError('required')" class="required alert-error">  
+						<mat-error *ngIf="addPerfilForm.controls['cantHistory'].touched && !addPerfilForm.controls['cantHistory'].valid">
+							<mat-error *ngIf="addPerfilForm.controls['cantHistory'].hasError('required')" class="required alert-error">  
 								El campo es obligatorio.
 							</mat-error>
 						</mat-error>
 				</mat-form-field>
 
 				<mat-form-field style =" margin-right: 2%; width: 48%;">
-					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="lengthMinimum" class="form-control" placeholder="Longitud mínima" maxlength="10" >
-						<mat-error *ngIf="editPerfilForm.controls['lengthMinimum'].touched && !editPerfilForm.controls['lengthMinimum'].valid">
-							<mat-error *ngIf="editPerfilForm.controls['lengthMinimum'].hasError('required')" class="required alert-error">  
+					<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text" appOnlyNumber formControlName="lengthMinumum" class="form-control" placeholder="Longitud mínima" maxlength="10" >
+						<mat-error *ngIf="addPerfilForm.controls['lengthMinumum'].touched && !addPerfilForm.controls['lengthMinumum'].valid">
+							<mat-error *ngIf="addPerfilForm.controls['lengthMinumum'].hasError('required')" class="required alert-error">  
 								El campo es obligatorio.
 							</mat-error>
 						</mat-error>
@@ -72,7 +73,235 @@
 	
 	<mat-dialog-actions class="m-0">
 		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
-		<button (click)="onFormSubmit()" type="submit" [disabled]="!editPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!addPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
 	</mat-dialog-actions>
 </form>
-<!-- add-new-user -->
+ add-new-user -->
+
+ <form [formGroup]="addPerfilForm" class="popup-card-width w-100">
+	<div>
+		<h2 mat-dialog-title>Información del Usuario</h2>
+	</div>	
+	<mat-dialog-content class="mb-4" style="width: 750px; height: 500px;">
+
+		<mat-tab-group>
+			<mat-tab label="Usuarios"> 
+					  <!--primer tab-->
+		  
+					  <div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+								<div class="col-md-3">
+								<label>Usuario</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="user" class="form-control"  maxlength="20" >
+							</div>
+						</div>
+							</div>
+						<div class="col-md-6">
+		2
+						</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Nombre(s)</label>
+							</div>
+									<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="name" class="form-control"  maxlength="20" >
+							</div>
+						</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Planta</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="planta" class="form-control"  maxlength="20" >
+							</div>
+							</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Apellido(s)</label>
+								</div>
+									<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastname" class="form-control"  maxlength="20" >
+							</div>
+							</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Nro. Telefono</label>
+								</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="telf" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-3">
+								<label>Email</label>
+									</div>
+									<div class="col-md-3">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="email" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Nro. de Celular</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="telephonec" class="form-control"  maxlength="20" >
+									</div>
+									</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<mat-checkbox class="example-margin" formControlName="superuser" >Es Super Usuario</mat-checkbox>
+		
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Estado</label>
+							</div>
+								<div class="col-md-9">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="state" class="form-control"  maxlength="20" >
+								</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="row">
+							<div class="col-md-6">
+								<mat-checkbox class="example-margin" formControlName="notification" >Recibir notificacione</mat-checkbox>
+		
+							</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-3">
+							<label>Último Acceso</label>
+								</div>
+								<div class="col-md-3">
+								<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastacces" class="form-control"  maxlength="20" >
+									</div>
+									</div>
+							</div>
+						</div>
+
+					</div> <!--primer tab-->
+			</mat-tab>
+			<mat-tab label="Permisos"> 
+						  <!--primer tab-->
+		  
+			<div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Visualización de cargos
+						</label>
+
+
+					</div>
+				<div class="col-md-6">
+					<mat-checkbox class="example-margin" formControlName="notification" >Todos</mat-checkbox>
+						<mat-checkbox class="example-margin" formControlName="notification" >Gerentes</mat-checkbox>
+						<mat-checkbox class="example-margin" formControlName="notification" >Jefes</mat-checkbox>
+				</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<label>Visualizaciones de Plantas</label>
+
+					</div>
+				<div class="col-md-6">
+					<div class="row">
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+					</div>
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+					</div>
+					<div class="col-md-3">
+					<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+					</div>
+					</div>
+				
+					<div class="row">
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+						</div>
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+						</div>
+						<div class="col-md-3">
+						<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+						</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >BN</mat-checkbox>
+							</div>
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >CBBA</mat-checkbox>
+							</div>
+							<div class="col-md-3">
+							<mat-checkbox class="example-margin" formControlName="notification" >CH</mat-checkbox> <br>
+							</div>
+							</div>
+				</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<label>Modulos</label>
+						<input autocomplete="off" oncopy="return false" onpaste ="return false"  matInput type="text"  formControlName="lastname" class="form-control"  maxlength="20" >
+
+					</div>
+				<div class="col-md-6">
+					<mat-checkbox class="example-margin" formControlName="notification" >Usuarios</mat-checkbox>
+				</div>
+				</div>
+
+
+
+			</div> <!--primer tab-->
+
+
+			</mat-tab>
+
+		  </mat-tab-group>
+
+
+
+		  
+		  <!--termino los tab con contenido-->
+	</mat-dialog-content>
+	<div>
+	<mat-dialog-actions class="m-0">
+		<button type="button" mat-raised-button (click)="dialogRef.close()" color="primary">Cancelar</button>
+		<button (click)="onFormSubmit()" type="submit" [disabled]="!addPerfilForm.valid" mat-raised-button color="warn">Guardar</button>
+	</mat-dialog-actions>
+</div>
+</form>
+
+
