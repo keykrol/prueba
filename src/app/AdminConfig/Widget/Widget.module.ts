@@ -19,10 +19,7 @@ import { TranslateModule } 											from '@ngx-translate/core';
 import { ReactiveFormsModule,FormsModule } 							from '@angular/forms';;
 import { FlexLayoutModule } 										from '@angular/flex-layout';
 import { RouterModule } 											from '@angular/router';
-import { AddRolComponent }                                          from './PopUp/AddRol/AddRol.component';
 import { AddPerfilComponent }                                       from './PopUp/AddPerfil/AddPerfil.component';
-import { AddHaulierComponent }										from './PopUp/AddHaulier/AddHaulier.component';
-import { AddCoinComponent }											from './PopUp/AddCoin/AddCoin.component';
 
 import { OnlyNumberDirective } 										from '../Directive/only-number.directive';
 import { EditAppUserComponent }                                     from './PopUp/EditAppUser/EditAppUser.component';
@@ -34,17 +31,13 @@ import { EditPersonComponent } 										from './PopUp/EditPerson/EditPerson.com
 import { MatExpansionModule } 										from '@angular/material/expansion';
 import { AddUserComponent } 										from './PopUp/AddUser/AddUser.component';
 import { EditUserComponent } 										from './PopUp/EditUser/EditUser.component';
-import { AddLanguageComponent } 									from './PopUp/AddLanguage/AddLanguage.component';
 import { OnlyLetterDirective } 										from '../Directive/only-letter.directive';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
 	declarations: [
-        AddRolComponent,
 		AddPerfilComponent,
-		AddHaulierComponent,
-		AddCoinComponent,
 		EditRolComponent,
 		EditAppUserComponent,
 		EditPerfilComponent,
@@ -52,7 +45,6 @@ import {MatTabsModule} from '@angular/material/tabs';
 		EditPersonComponent,
 		AddUserComponent,
 		EditUserComponent,
-		AddLanguageComponent,
 		OnlyNumberDirective,
 		OnlyLetterDirective
 	],
@@ -90,10 +82,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 		OnlyLetterDirective
 	 ],
 	entryComponents: [
-        AddRolComponent,
 		AddPerfilComponent,
-		AddHaulierComponent,
-		AddCoinComponent,
 		EditAppUserComponent,
 		EditRolComponent,
 		EditPerfilComponent,
@@ -101,7 +90,6 @@ import {MatTabsModule} from '@angular/material/tabs';
 		EditPersonComponent,
 		AddUserComponent,
 		EditUserComponent,
-		AddLanguageComponent,
    ]
 })
 export class WidgetModule { }
