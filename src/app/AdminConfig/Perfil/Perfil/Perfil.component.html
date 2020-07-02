@@ -27,27 +27,27 @@
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 table-scroll-wrap">
 
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> Acciones </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.action}} </td>
             </ng-container>
 
             <!-- Attempts Column -->
-            <ng-container matColumnDef="attempts">
+            <ng-container matColumnDef="user">
               <th mat-header-cell *matHeaderCellDef> Usuarios </th>
-              <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.user}} </td>
             </ng-container>
 
             <!-- Expiracion day Column -->
-            <ng-container matColumnDef="expirationDay">
+            <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Nombre(s) </th>
-              <td mat-cell *matCellDef="let element"> {{element.expirationDay}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
             <!-- Cant Column -->
-            <ng-container matColumnDef="cantHistory">
+            <ng-container matColumnDef="lastname">
               <th mat-header-cell *matHeaderCellDef> Apellidos(s) </th>
-              <td mat-cell *matCellDef="let element"> {{element.cantHistory}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
             </ng-container>
 
             <!-- Status Column -->
@@ -62,17 +62,17 @@
              </td>
             </ng-container> -->
 
-            <ng-container matColumnDef="boolDelete">
+            <ng-container matColumnDef="telf">
               <th mat-header-cell *matHeaderCellDef> Teléfono </th>
-              <td mat-cell *matCellDef="let element"> {{element.boolDelete}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.telf}} </td>
             </ng-container>
 
             
 
             <!-- Edit Column -->
-            <ng-container matColumnDef="edit">
+            <ng-container matColumnDef="cel">
               <th class="px-3" mat-header-cell *matHeaderCellDef> Celular </th>
-              <td mat-cell *matCellDef="let element"> {{element.edit}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.cel}} </td>
             </ng-container>
 
             <ng-container matColumnDef="email">
